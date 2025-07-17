@@ -4,12 +4,12 @@ import { getEnvVar } from "./getEnvVar.js";
 
 // Логування для перевірки параметрів SMTP
 console.log("SMTP PORT:", getEnvVar(SMTP.SMTP_PORT));
-console.log("Secure:", false);
+console.log("Secure:", true);
 
 const transporter = nodemailer.createTransport({
   host: getEnvVar(SMTP.SMTP_HOST),
   port: Number(getEnvVar(SMTP.SMTP_PORT)),
-  secure: false, // обов’язково для порту 587
+  secure: true, 
   auth: {
     user: getEnvVar(SMTP.SMTP_USER),
     pass: getEnvVar(SMTP.SMTP_PASSWORD),
